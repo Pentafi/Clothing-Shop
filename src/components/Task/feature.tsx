@@ -30,12 +30,12 @@ export enum ShopActionType {
     payload: total,
   });
 
-  export const addWish = (product: Product): ShopAction => ({
+  export const addWishList = (product: Product): ShopAction => ({
     type: ShopActionType.ADD_WISH,
     payload: product,
   });
   
-  export const removeWish = (product: Product): ShopAction => ({
+  export const removeWishList = (product: Product): ShopAction => ({
     type: ShopActionType.REMOVE_WISH,
     payload: product,
   });
