@@ -22,6 +22,12 @@ export const TitleWrapper = styled.div`
     font-weight: bold;
     color: #000;
   }
+
+  h1 {
+    text-align:center;
+    font-family: 'tahoma';
+    color: #023047;
+}
 `;
 
 export const LinksWrapper = styled.div`

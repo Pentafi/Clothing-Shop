@@ -17,7 +17,7 @@ export const ItemWrapper = styled.div<ItemProps>`
   height: 340px;
   border-radius: 20px;
   background: ${(props) =>
-    props.background && `url(${props.background}) center no-repeat`};
+  props.background && `url(${props.background}) center no-repeat`};
   background-size: 300px;
   overflow: hidden;
   position: relative;
@@ -29,12 +29,13 @@ export const CheckOutTable = styled.table`
 export const CheckOutHeader = styled.th`
   height: 50px;
   width: 150px;
-  background-color: #F8C471;
+  background-color: #ffb703;
+  border-radius: 20px;
   font-size: 25px;
   text-align: center;
   vertical-align: middle;
-  color: white;
-  font-family: 'Times New Roman';
+  color: #023047;
+  font-family: 'tahoma';
 `;
 
 export const Det = styled.td`
@@ -58,24 +59,24 @@ export const CheckOutInput = styled.input`
 `;
 
 export const OrderButton = styled.button`
-  background-color: #F8C471;
+  background-color: #ffb703;
   float: right;
   justify-content: center;
   align-items: center;
   top: 20px;
   right: 20px;
   width: 150px;
-  height: 30px;
+  height: 40px;
   padding: 5px;
   cursor: pointer;
   border-radius: 15px;
   broder: none;
 
   p {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     margin: 0;
-    color: black;
+    color: #023047;
   }
 
   

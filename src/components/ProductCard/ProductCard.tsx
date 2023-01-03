@@ -3,7 +3,7 @@ import { AddButton, SubTitle, TextContainer, Title, Wrapper, WishButton} from '.
 import { useState, useEffect, useContext } from 'react';
 import { Product } from '../Models';
 import { ClothingShopContext } from "../useContext";
-import { BsFillStarFill, BsStar } from "react-icons/bs";
+import { BsFillHeartFill, BsHeart } from "react-icons/bs";
 
 export const ProductCard = ({ name, imageUrl, price, quantity }: Product) => {
   const {products, wishes, addToCart, removeItem, addWish, removeWish } = useContext(ClothingShopContext);
@@ -57,7 +57,7 @@ useEffect(() => {
         <p>{isInCart ? "-" : "+"}</p>
       </AddButton>
       <WishButton isInList={isInList} onClick={handleList}>
-        <p>{isInList ? <BsFillStarFill /> : <BsStar />}</p>
+        <p>{isInList ? <BsFillHeartFill /> : <BsHeart/>}</p>
       </WishButton>
       <TextContainer>
         <Title>{name}</Title>

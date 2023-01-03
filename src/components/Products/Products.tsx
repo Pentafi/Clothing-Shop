@@ -5,7 +5,7 @@ import { shopData } from '../../data';
 export const Products = () => {
   return (
     <>
-      <Title>Welcome to the Clothing Shop</Title>
+      <Title>Welcome to Clothing Shop <br/> Enjoy Shopping!</Title>
       <ProductsWrapper>
         {shopData.map((data, index) => (
           <ProductCard key={index} {...data} />

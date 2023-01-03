@@ -8,13 +8,13 @@ export const CheckOut = () => {
   const { products, total } = useContext(ClothingShopContext);
 
   const checkout = () => {
-    alert(`Checkout - Total: $₱{total}`);
+    alert(`Checkout - Total: ₱${total}`);
   
   }
 
   return (
     <>
-      <Title>Items available for checkout</Title>
+      <Title>Items for Checkout</Title>
       <CheckOutTable>
         <thead>
           <tr>

@@ -57,12 +57,12 @@ export const WishButton = styled.div<WishButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 60px;
+  top: 55px;
   right: 20px;
   width: 20px;
   height: 20px;
-  background: ${(props) => (props.isInList ? '#E8A934' : '#60c95d')};
-  border-radius: 50%;
+  background: ${(props) => (props.isInList ? '#ff1616' : '#60c95d')};
+  border-radius: 60%;
   padding: 5px;
   cursor: pointer;
 
@@ -73,8 +73,9 @@ export const WishButton = styled.div<WishButtonProps>`
 
   p {
     font-size: 20px;
-    margin: 0;
     color: white;
+    font-weight: bold;
+    position: absolute; left: 5px; bottom: -21px;
   }
 `;
 
