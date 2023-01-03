@@ -1,9 +1,13 @@
-import { Product } from "../../models/Product";
+import { Product } from "../Models/product";
 
 export enum ShopActionType {
     ADD = 'add',
     REMOVE = 'remove',
     UPDATE = 'update',
+    ADD_WISH = 'add wish',
+    REMOVE_WISH = 'remove wish',
+    INCREASE_QUANTITY = 'increase quantity',
+    DECREASE_QUANTITY = 'decrease quantity',
   }
   
   export type ShopAction = {
@@ -24,4 +28,24 @@ export enum ShopActionType {
   export const update = (total: number): ShopAction => ({
     type: ShopActionType.UPDATE,
     payload: total,
+  });
+
+  export const addWishList = (product: Product): ShopAction => ({
+    type: ShopActionType.ADD_WISH,
+    payload: product,
+  });
+  
+  export const removeWishList = (product: Product): ShopAction => ({
+    type: ShopActionType.REMOVE_WISH,
+    payload: product,
+  });
+
+  export const increaseQty = (product: Product): ShopAction => ({
+    type: ShopActionType.INCREASE_QUANTITY,
+    payload: product,
+  });
+
+  export const decreaseQty = (product: Product): ShopAction => ({
+    type: ShopActionType.DECREASE_QUANTITY,
+    payload: product,
   });

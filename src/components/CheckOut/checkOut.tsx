@@ -1,22 +1,14 @@
 import { useContext } from "react";
-import { ShopContext } from "../Context";
-import { Product } from "../../models/Product";
+import { ClothingShopContext } from "../useContext";
+import { Product } from "../Models/product";
 import { Title } from "../Cart";
-import {
-  Det,
-  CheckOutHeader,
-  CheckOutTable,
-  ItemWrapper,
-  OrderButton,
-} from "./checkOut.styled";
-
-
+import {Det, CheckOutHeader, CheckOutTable, ItemWrapper, OrderButton} from "./checkOut.styled";
 
 export const CheckOut = () => {
-  const { products, total } = useContext(ShopContext);
+  const { products, total } = useContext(ClothingShopContext);
 
   const checkout = () => {
-    alert(`Checkout - Total: $${total}`);
+    alert(`Checkout - Total: $₱{total}`);
   
   }
 

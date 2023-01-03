@@ -1,5 +1,4 @@
 import { ProductsWrapper, Title } from './Products.styled';
-
 import { ProductCard } from '../ProductCard';
 import { shopData } from '../../data';
 

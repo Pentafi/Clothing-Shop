@@ -1,12 +1,12 @@
 import { AddButton, SubTitle, TextContainer, Title, Wrapper, WishButton} from './ProductCard.styled';
 
 import { useState, useEffect, useContext } from 'react';
-import { Product } from '../../models';
-import { ShopContext } from "../Context";
+import { Product } from '../Models';
+import { ClothingShopContext } from "../useContext";
 import { BsFillStarFill, BsStar } from "react-icons/bs";
 
 export const ProductCard = ({ name, imageUrl, price, quantity }: Product) => {
-  const {products, wishes, addToCart, removeFromCart, addToWish, removeFromWish } = useContext(ShopContext);
+  const {products, wishes, addToCart, removeItem, addWish, removeWish } = useContext(ClothingShopContext);
   const [isInCart, setIsInCart] = useState(false);
   const [isInList, setIsInList] = useState(false);
 
@@ -33,7 +33,7 @@ useEffect(() => {
   const handleClick = () => {
     const product = { name, imageUrl, price, quantity };
     if (isInCart) {
-      removeFromCart(product);
+      removeItem(product);
       setIsInCart(false);
     } else {
       addToCart(product);
@@ -44,10 +44,10 @@ useEffect(() => {
   const handleList = () => {
     const product = { name, imageUrl, price };
     if (isInList) {
-      removeFromWish(product);
+      removeWish(product);
       setIsInList(false);
     } else {
-      addToWish(product);
+      addWish(product);
       setIsInList(true);
     }
   };

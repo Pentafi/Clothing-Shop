@@ -2,11 +2,11 @@ import { Link, Route, Routes } from "react-router-dom";
 import { LinksWrapper, TitleWrapper, Wrapper } from "./App.styled";
 import { Cart } from "../Cart";
 import { Products } from "../Products";
-import { ShopContext } from "../Context";
+import { ClothingShopContext } from "../useContext";
 import { useReducer } from "react";
-import { add, initialState, addWishList, removeWishList, decreaseQty, increaseQty, remove, shopReducer, update } from "../Task";
-import { Product } from "../Models/product";
-import { WishList } from "../Wishlist/wishList";
+import { add, initialState, addWishList, removeWishList, decreaseQty, increaseQty, remove, shopReducer, update } from "../useReducer";
+import { Product } from "../Models";
+import { Wishlist } from "../Wishlist";
 import { CheckOut } from "../CheckOut";
 
 export const App = () => {
@@ -95,7 +95,7 @@ export const App = () => {
   };
 
   return (
-    <ShopContext.Provider value={value}>
+    <ClothingShopContext.Provider value={value}>
       <Wrapper>
         <TitleWrapper>
           <h1>Clothing Shop Starter Project</h1>
@@ -109,10 +109,10 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Products />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/wishlist" element={<WishList />} />
-          <Link to="/checkout">Checkout</Link>
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/checkout" element = {<CheckOut />} />
         </Routes>
       </Wrapper>
-    </ShopContext.Provider>
+    </ClothingShopContext.Provider>
   );
 };
