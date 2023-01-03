@@ -1,13 +1,13 @@
 import { Link, Route, Routes } from "react-router-dom";
 import { LinksWrapper, TitleWrapper, Wrapper } from "./App.styled";
-
 import { Cart } from "../Cart";
 import { Products } from "../Products";
-import { ClothingShopContext } from "../useContext";
+import { ShopContext } from "../Context";
 import { useReducer } from "react";
 import { add, initialState, addWishList, removeWishList, decreaseQty, increaseQty, remove, shopReducer, update } from "../Task";
-import { Product } from "../../models";
+import { Product } from "../Models/product";
 import { WishList } from "../Wishlist/wishList";
+import { CheckOut } from "../CheckOut";
 
 export const App = () => {
   const [state, dispatch] = useReducer(shopReducer, initialState);
@@ -19,13 +19,13 @@ export const App = () => {
     dispatch(add(updatedCart));
   };
 
-  const addToWishList = (product: Product) => {
+  const addWish = (product: Product) => {
     const updateList = state.wishes.concat(product);
 
     dispatch(addWishList(updateList));
   };
 
-  const removeFromWish = (product: Product) => {
+  const removeWish = (product: Product) => {
     const updatedList = state.wishes.filter(
       (currentProduct: Product) => currentProduct.name !== product.name
     );
@@ -85,15 +85,17 @@ export const App = () => {
   const value = {
     total: state.total,
     products: state.products,
+    wishes: state.wishes,
     addToCart,
     removeItem,
-    addToWishList,
-    removeFromWish,
+    addWish,
+    removeWish,
     increaseOrder,
     decreaseOrder
   };
+
   return (
-    <ClothingShopContext.Provider value={value}>
+    <ShopContext.Provider value={value}>
       <Wrapper>
         <TitleWrapper>
           <h1>Clothing Shop Starter Project</h1>
@@ -102,13 +104,15 @@ export const App = () => {
           <Link to="/">Home</Link>
           <Link to="/cart">Cart</Link>
           <Link to="/wishlist">Wishlist</Link>
+          <Link to="/checkout">Checkout</Link>
         </LinksWrapper>
         <Routes>
           <Route path="/" element={<Products />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/wishlist" element={<WishList />} />
+          <Link to="/checkout">Checkout</Link>
         </Routes>
       </Wrapper>
-    </ClothingShopContext.Provider>
+    </ShopContext.Provider>
   );
 };
